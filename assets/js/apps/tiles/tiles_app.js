@@ -2,17 +2,21 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
     TilesApp.Router = Marionette.AppRouter.extend({
        appRoutes: {
            "show": "showTiles",
-           "show/:color": "showTiles"
+           "show/:color": "showTiles",
+           "show/:color/:id": "action"
        }
     });
 
     var API = {
-        showTiles: function(model){
-            if(model) {
-                TilesApp.End.Controller.showTiles(model);
+        showTiles: function(color){
+            if(color) {
+                TilesApp.End.Controller.showTiles(color);
             } else {
                 TilesApp.Start.Controller.showTiles();
             }
+        },
+        action: function(color, id) {
+            console.log(color + ":" + id);
         }
     };
 
@@ -35,6 +39,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
     TilesManager.on("tiles:red", function(model) {
         TilesManager.navigate("show/red/" + model.id);
+        API.action("red", model.id);
     });
 
     TilesManager.on("tiles:violet", function(model) {

@@ -1,10 +1,9 @@
 TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marionette, $, _) {
     End.Controller = {
-        showTiles: function(model) {
+        showTiles: function(color) {
             var fetchingTileData = TilesManager.request("tiles:entities");
             $.when(fetchingTileData).done(function(tiles){
-                TilesManager.currentId = model.id;
-                TilesManager.currentColor = model.get("color");
+                TilesManager.currentColor = color;
                 var tilesView = new End.Tiles({
                     collection: tiles
                 });
