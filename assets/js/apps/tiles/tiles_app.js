@@ -1,27 +1,29 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
     TilesApp.Router = Marionette.AppRouter.extend({
        appRoutes: {
-           "start": "showTiles",
-           "switch/:id": "switchTiles"
+           "show": "showTiles",
+           "show/:color": "showTiles"
        }
     });
 
     var API = {
-        showTiles: function(){
-            TilesApp.Start.Controller.showTiles();
-        },
-        switchTiles: function(id) {
-            console.log(id);
+        showTiles: function(model){
+            if(model) {
+                TilesApp.End.Controller.showTiles(model);
+            } else {
+                TilesApp.Start.Controller.showTiles();
+            }
         }
     }
 
-    TilesManager.on("tiles:start", function(){
-        TilesManager.navigate("start");
-        API.showTiles();
-    });
-    TilesManager.on("tiles:switch", function(id){
-        TilesManager.navigate("switch/" + id);
-        API.switchTiles(id);
+    TilesManager.on("tiles:show", function(model){
+        if(model) {
+            TilesManager.navigate("show/" + model.color);
+            API.showTiles(model);
+        } else {
+            TilesManager.navigate("show");
+            API.showTiles();
+        }
     });
 
     TilesManager.addInitializer(function(){

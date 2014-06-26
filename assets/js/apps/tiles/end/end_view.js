@@ -1,26 +1,37 @@
-TilesManager.module("TilesApp.Start", function(Start, TilesManager, Backbone, Marionette, $, _) {
+TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marionette, $, _) {
     var template = '<div class="square bg <%- color %>">' +
         '<div class="content">' +
         '<div class="table">'+
-            '<div class="table-cell"></div>'+
+        '<div class="table-cell"></div>'+
         '</div>'+
         '</div>'+
-    '</div>';
-    Start.Tile = Marionette.ItemView.extend({
+        '</div>';
+    End.Tile = Marionette.ItemView.extend({
 
         template: function(serialized_model) {
-            var color = serialized_model.color;
-            return _.template(template, {color: color})
-        },
 
+            return _.template(template, {color: TilesManager.currentColor})
+        },
         events: {
             "click": "tileClicked"
         },
         tileClicked: function(e) {
             e.preventDefault();
             e.stopPropagation();
+            /*
+             {
+             id:0,
+             color: "red",
+             transitions:[
+             { action: "tiles:return" }
+             ]
+             }
+             */
+            console.log(this.model);
 
-            this.trigger("tiles:show", this.model);
+            var transition = this.model.get("transitions")[TilesManager.currentId];
+            console.log(transition);
+            this.trigger(transition.action);
         },
         onRender: function () {
             // Get rid of that pesky wrapping-div.
@@ -34,9 +45,9 @@ TilesManager.module("TilesApp.Start", function(Start, TilesManager, Backbone, Ma
 
     });
 
-    Start.Tiles = Marionette.CollectionView.extend({
+    End.Tiles = Marionette.CollectionView.extend({
         tagName: "div",
         className: "row",
-        itemView: Start.Tile
+        itemView: End.Tile
     });
 });

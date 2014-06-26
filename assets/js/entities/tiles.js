@@ -2,6 +2,7 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
     Entities.Tile = Backbone.Model.extend({
         urlRoot: "tiles"
     });
+
     Entities.configureStorage(Entities.Tile);
 
     Entities.TileCollection = Backbone.Collection.extend({
@@ -12,15 +13,69 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
 
     var initializeTiles = function(){
         var tiles = new Entities.TileCollection([
-            {id:1, color: "red"},
-            {id:2, color: "violet"},
-            {id:3, color: "pink"},
-            {id:4, color: "orange"},
-            {id:5, color: "yellow"},
-            {id:6, color: "green"},
-            {id:7, color: "cyan"},
-            {id:8, color: "blue"},
-            {id:9, color: "darkblue"},
+            {
+                id:0,
+                color: "red",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
+            {
+                id:1,
+                color: "violet",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
+            {
+                id:2,
+                color: "pink",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
+            {
+                id:3,
+                color: "orange",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
+            {
+                id:4,
+                color: "yellow",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
+            {
+                id:5,
+                color: "green",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
+            {
+                id:6,
+                color: "cyan",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
+            {
+                id:7,
+                color: "blue",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
+            {
+                id:8,
+                color: "darkblue",
+                transitions:[
+                    { action: "tiles:return" }
+                ]
+            },
         ]);
         tiles.forEach(function(tile){
             tile.save();
@@ -65,5 +120,5 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
     };
     TilesManager.reqres.setHandler("tiles:entities", function(){
         return API.getTileEntities();
-    })
+    });
 });

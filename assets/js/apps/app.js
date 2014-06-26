@@ -17,7 +17,7 @@ TilesManager.on("initialize:after", function(){
     if(Backbone.history) {
         Backbone.history.start();
         if(this.getCurrentRoute() == "") {
-            TilesManager.trigger("tiles:start");
+            TilesManager.trigger("tiles:show");
         }
     }
 })
