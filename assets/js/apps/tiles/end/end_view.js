@@ -19,19 +19,19 @@ TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marion
             e.preventDefault();
             e.stopPropagation();
             /*
-             {
-             id:0,
-             color: "red",
-             transitions:[
-             { action: "tiles:return" }
-             ]
+             transitions:{
+             red: { action:"tiles:red"},
+             violet: { action: "tiles:violet"},
+             pink: { action: "tiles:pink"},
+             orange: { action: "tiles:orange"},
+             yellow: { action: "tiles:yellow"},
+             green: { action: "tiles:green"},
+             cyan: { action: "tiles:cyan"},
+             blue: { action: "tiles:blue"},
+             darkblue: {action: "tiles:darkblue"}
              }
              */
-            console.log(this.model);
-
-            var transition = this.model.get("transitions")[TilesManager.currentId];
-            console.log(transition);
-            this.trigger(transition.action);
+            this.trigger("tiles:" + TilesManager.currentColor, this.model);
         },
         onRender: function () {
             // Get rid of that pesky wrapping-div.

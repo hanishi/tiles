@@ -16,65 +16,83 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
             {
                 id:0,
                 color: "red",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
             {
                 id:1,
                 color: "violet",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
             {
                 id:2,
                 color: "pink",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
             {
                 id:3,
                 color: "orange",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
             {
                 id:4,
                 color: "yellow",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
             {
                 id:5,
                 color: "green",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
             {
                 id:6,
                 color: "cyan",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
             {
                 id:7,
                 color: "blue",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
             {
                 id:8,
                 color: "darkblue",
-                transitions:[
-                    { action: "tiles:return" }
-                ]
+                icons: {
+                    red: "", violet: "", pink: "",
+                    orange: "",yellow: "", green: "",
+                    cyan: "", blue: "", darkblue: ""
+                }
             },
         ]);
         tiles.forEach(function(tile){

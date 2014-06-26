@@ -3,16 +3,39 @@ TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marion
         showTiles: function(model) {
             var fetchingTileData = TilesManager.request("tiles:entities");
             $.when(fetchingTileData).done(function(tiles){
-                console.log(model.id);
-                console.log(model.get("color"));
                 TilesManager.currentId = model.id;
                 TilesManager.currentColor = model.get("color");
                 var tilesView = new End.Tiles({
                     collection: tiles
                 });
-                tilesView.on("itemview:tiles:return", function(childView, model){
-                    console.log("AAAAAAAAAAAAAAAAAAAAAA");
+                tilesView.on("itemview:tiles:red", function(childView, model){
+                    TilesManager.trigger("tiles:red", model);
                 });
+                tilesView.on("itemview:tiles:violet", function(childView, model){
+                    TilesManager.trigger("tiles:violet", model);
+                });
+                tilesView.on("itemview:tiles:pink", function(childView, model){
+                    TilesManager.trigger("tiles:pink", model);
+                });
+                tilesView.on("itemview:tiles:orange", function(childView, model){
+                    TilesManager.trigger("tiles:orange", model);
+                });
+                tilesView.on("itemview:tiles:yellow", function(childView, model){
+                    TilesManager.trigger("tiles:yellow", model);
+                });
+                tilesView.on("itemview:tiles:green", function(childView, model){
+                    TilesManager.trigger("tiles:green", model);
+                });
+                tilesView.on("itemview:tiles:cyan", function(childView, model){
+                    TilesManager.trigger("tiles:cyan", model);
+                });
+                tilesView.on("itemview:tiles:blue", function(childView, model){
+                    TilesManager.trigger("tiles:blue", model);
+                });
+                tilesView.on("itemview:tiles:darkblue", function(childView, model){
+                    TilesManager.trigger("tiles:darkblue", model);
+                });
+
                 TilesManager.mainRegion.show(tilesView);
             });
         }
