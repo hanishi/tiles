@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/css/skeuocard.reset.css" />
+    <link rel="stylesheet" href="assets/css/skeuocard.css" />
+    <link rel="stylesheet" href="assets/css/demo.css">
 
     <style type='text/css'>
         .square {float:left;position: relative;width: 30%;padding-bottom : 30%; /* = width for a 1:1 aspect ratio */margin:1.66%;background-color:#1E1E1E;overflow:hidden;}
@@ -34,7 +37,9 @@
 </head>
 <body>
 <div id="main-region"></div>
-
+<script type="text/template" id="tiles-frame">
+    <div class="col-md-5"></div>
+</script>
 <script type="text/template" id="tiles-tile">
     <div class="square bg <%- color %>">
         <div class="content">
@@ -44,12 +49,43 @@
         </div>
     </div>
 </script>
-<script type="text/template" id="tiles-frame">
-    <div class="row">
-        <div class="col-md-5"></div>
+<script type="text/template" id="layout">
+    <div id="tiles-region">
+
+    </div>
+    <div id="action-region" class="col-md-7">
+
     </div>
 </script>
-<script type="text/javascript" src="assets/js/vendor/jquery.js"></script>
+
+<script type="text/template" id="new_credit_card">
+    <div class="credit-card-input" id="skeuocard">
+        <label for="cc_type">Card Type</label>
+        <select name="cc_type">
+            <option value="">...</option>
+            <option value="visa">Visa</option>
+            <option value="discover">Discover</option>
+            <option value="mastercard">MasterCard</option>
+            <option value="maestro">Maestro</option>
+            <option value="jcb">JCB</option>
+            <option value="unionpay">China UnionPay</option>
+            <option value="amex">American Express</option>
+            <option value="dinersclubintl">Diners Club</option>
+        </select>
+        <label for="cc_number">Card Number</label>
+        <input type="text" name="cc_number" id="cc_number" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" size="19">
+        <label for="cc_exp_month">Expiration Month</label>
+        <input type="text" name="cc_exp_month" id="cc_exp_month" placeholder="00">
+        <label for="cc_exp_year">Expiration Year</label>
+        <input type="text" name="cc_exp_year" id="cc_exp_year" placeholder="00">
+        <label for="cc_name">Cardholder's Name</label>
+        <input type="text" name="cc_name" id="cc_name" placeholder="John Doe">
+        <label for="cc_cvc">Card Validation Code</label>
+        <input type="text" name="cc_cvc" id="cc_cvc" placeholder="123" maxlength="3" size="3">
+    </div>
+</script>
+
+<script type="text/javascript" src="assets/js/vendor/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="assets/js/vendor/json2.js"></script>
 <script type="text/javascript" src="assets/js/vendor/underscore.js"></script>
 <script type="text/javascript" src="assets/js/vendor/backbone.js"></script>
@@ -58,12 +94,16 @@
 <script type="text/javascript" src="assets/js/vendor/backbone.syphon.js"></script>
 <script type="text/javascript" src="assets/js/vendor/spin.min.js"></script>
 <script type="text/javascript" src="assets/js/vendor/spin.jquery.js"></script>
+<script type="text/javascript" src="assets/js/vendor/cssua.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/skeuocard.js"></script>
 <script type="text/javascript" src="assets/js/apps/app.js"></script>
 <script type="text/javascript" src="assets/js/apps/config/storage/localstorage.js"></script>
 <script type="text/javascript" src="assets/js/entities/tiles.js"></script>
 <script type="text/javascript" src="assets/js/apps/tiles/start/start_view.js"></script>
 <script type="text/javascript" src="assets/js/apps/tiles/start/start_controller.js"></script>
 <script type="text/javascript" src="assets/js/apps/tiles/end/end_view.js"></script>
+<script type="text/javascript" src="assets/js/apps/tiles/payment/credit_card/credit_card_view.js"></script>
+<script type="text/javascript" src="assets/js/apps/tiles/payment/credit_card/credit_card_controller.js"></script>
 <script type="text/javascript" src="assets/js/apps/tiles/end/end_controller.js"></script>
 <script type="text/javascript" src="assets/js/apps/tiles/tiles_app.js"></script>
 <script>

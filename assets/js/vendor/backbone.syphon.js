@@ -16,8 +16,8 @@ Backbone.Syphon = (function(Backbone, $, _){
     // ------
 
     // Get a JSON object that represents
-    // all of the form inputs, in this view.
-    // Alternately, pass a form element directly
+    // all of the payment inputs, in this view.
+    // Alternately, pass a payment element directly
     // in place of the view.
     Syphon.serialize = function(view, options){
         var data = {};
@@ -55,8 +55,8 @@ Backbone.Syphon = (function(Backbone, $, _){
     };
 
     // Use the given JSON object to populate
-    // all of the form inputs, in this view.
-    // Alternately, pass a form element directly
+    // all of the payment inputs, in this view.
+    // Alternately, pass a payment element directly
     // in place of the view.
     Syphon.deserialize = function(view, data, options){
         // Build the configuration
@@ -89,8 +89,8 @@ Backbone.Syphon = (function(Backbone, $, _){
     // Helpers
     // -------
 
-    // Retrieve all of the form inputs
-    // from the form
+    // Retrieve all of the payment inputs
+    // from the payment
     var getInputElements = function(view, config){
         var form = getForm(view);
         var elements = form.elements;
@@ -146,8 +146,8 @@ Backbone.Syphon = (function(Backbone, $, _){
         return type.toLowerCase();
     };
 
-    // If a form element is given, just return it.
-    // Otherwise, get the form element from the view.
+    // If a payment element is given, just return it.
+    // Otherwise, get the payment element from the view.
     var getForm = function(viewOrForm){
         if (_.isUndefined(viewOrForm.$el) && viewOrForm.tagName.toLowerCase() === 'form'){
             return viewOrForm;
@@ -452,7 +452,7 @@ Backbone.Syphon.KeySplitter = function(key){
 
 // Take two segments of a key and join them together, to create the
 // de-normalized key name, when deserializing a data structure back
-// in to a form.
+// in to a payment.
 //
 // Example:
 //

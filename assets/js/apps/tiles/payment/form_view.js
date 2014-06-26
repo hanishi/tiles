@@ -1,12 +1,6 @@
-TilesManager.module("TilesApp.Start", function(Start, TilesManager, Backbone, Marionette, $, _) {
-    var template = '<div class="square bg <%- color %>">' +
-        '<div class="content">' +
-        '<div class="table">'+
-            '<div class="table-cell"></div>'+
-        '</div>'+
-        '</div>'+
-    '</div>';
-    Start.Tile = Marionette.ItemView.extend({
+TilesManager.module("TilesApp.Form", function(Form, TilesManager, Backbone, Marionette, $, _) {
+
+    Form.Tile = Marionette.ItemView.extend({
 
         template: function(serialized_model) {
             var color = serialized_model.color;

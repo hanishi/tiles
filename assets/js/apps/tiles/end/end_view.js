@@ -31,7 +31,7 @@ TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marion
              darkblue: {action: "tiles:darkblue"}
              }
              */
-            this.trigger("tiles:" + TilesManager.currentColor, this.model);
+            this.trigger("tiles:action", this.model);
         },
         onRender: function () {
             // Get rid of that pesky wrapping-div.
@@ -45,9 +45,12 @@ TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marion
 
     });
 
-    End.Tiles = Marionette.CollectionView.extend({
+    End.Tiles = Marionette.CompositeView.extend({
         tagName: "div",
         className: "row",
-        itemView: End.Tile
+        template: "#tiles-frame",
+        itemView: End.Tile,
+        itemViewContainer: "div.col-md-5"
     });
+
 });

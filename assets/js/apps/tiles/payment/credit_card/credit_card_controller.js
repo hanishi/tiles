@@ -1,6 +1,6 @@
-TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marionette, $, _) {
-    End.Controller = {
-        showTiles: function(color) {
+TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesManager, Backbone, Marionette, $, _) {
+    CreditCard.Controller = {
+        newCreditCard: function(color, id) {
             var fetchingTileData = TilesManager.request("tiles:entities");
             $.when(fetchingTileData).done(function(tiles){
 

@@ -7,71 +7,81 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
        }
     });
 
+    TilesApp.Controller = {
+        showView: function(color, id) {
+            var fetchingTileData = TilesManager.request("tiles:entities");
+            $.when(fetchingTileData).done(function(tiles){
+
+                TilesManager.currentColor = color;
+                var tilesView = new TilesApp.End.Tiles({
+                    collection: tiles
+                });
+                tilesView.on("itemview:tiles:action", function(childView, model){
+                    TilesManager.trigger("tiles:action", color, model);
+                });
+                var Layout = Marionette.Layout.extend({
+                    template: "#layout",
+                    regions:{
+                        tilesRegion: "#tiles-region",
+                        actionRegion: "#action-region"
+                    }
+                });
+
+                                var layout = new Layout();
+                layout.on("show", function(){
+                    layout.tilesRegion.show(tilesView);
+                    layout.actionRegion.show(new TilesApp.Payment.CreditCard.New());
+                });
+
+                                TilesManager.mainRegion.show(layout);
+
+
+
+
+
+
+
+            });
+        }
+    }
+
     var API = {
         showTiles: function(color){
             if(color) {
+                TilesManager.navigate("show/" + color);
                 TilesApp.End.Controller.showTiles(color);
             } else {
+                TilesManager.navigate("show");
                 TilesApp.Start.Controller.showTiles();
             }
         },
         action: function(color, id) {
-            console.log(color + ":" + id);
+
+            if(id===0) {
+                //reset if id is 0
+                this.showTiles();
+            }else if(id<9){
+                TilesManager.navigate("show/" + color + "/" + id);
+
+                TilesApp.Controller.showView(color, id);
+            }
         }
     };
 
+
+
+
     TilesManager.on("tiles:show", function(model){
         if(model) {
-            console.log(model);
-            TilesManager.navigate("show/" + model.get("color"));
-            API.showTiles(model);
+            var color = model.get("color")
+            API.showTiles(color);
         } else {
-            console.log(model);
-            TilesManager.navigate("show");
             API.showTiles();
         }
     });
 
-    TilesManager.on("tiles:return", function(){
-        TilesManager.navigate("show");
-        API.showTiles();
-    });
-
-    TilesManager.on("tiles:red", function(model) {
-        TilesManager.navigate("show/red/" + model.id);
-        API.action("red", model.id);
-    });
-
-    TilesManager.on("tiles:violet", function(model) {
-        TilesManager.navigate("show/violet/" + model.id);
-    });
-
-    TilesManager.on("tiles:pink", function(model) {
-        TilesManager.navigate("show/pink/" + model.id);
-    });
-
-    TilesManager.on("tiles:orange", function(model) {
-        TilesManager.navigate("show/orange/" + model.id);
-    });
-
-    TilesManager.on("tiles:yellow", function(model) {
-        TilesManager.navigate("show/yellow/" + model.id);
-    });
-
-    TilesManager.on("tiles:green", function(model) {
-        TilesManager.navigate("show/green/" + model.id);
-    });
-
-    TilesManager.on("tiles:cyan", function(model) {
-        TilesManager.navigate("show/cyan/" + model.id);
-    });
-
-    TilesManager.on("tiles:blue", function(model) {
-        TilesManager.navigate("show/blue/" + model.id);
-    });
-
-    TilesManager.on("tiles:darkblue", function(model) {
-        TilesManager.navigate("show/darkblue/" + model.id);
+    TilesManager.on("tiles:action", function(color, model) {
+        API.action(color, model.id);
     });
 
     TilesManager.addInitializer(function(){
