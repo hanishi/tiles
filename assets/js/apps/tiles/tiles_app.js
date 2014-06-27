@@ -7,6 +7,14 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
        }
     });
 
+    TilesApp.Layout = Marionette.Layout.extend({
+        template: "#layout",
+        regions:{
+            tilesRegion: "#tiles-region",
+            actionRegion: "#action-region"
+        }
+    });
+
     TilesApp.Controller = {
         showView: function(color, id) {
             var fetchingTileData = TilesManager.request("tiles:entities");
@@ -34,13 +42,6 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                 });
 
                                 TilesManager.mainRegion.show(layout);
-
-
-
-
-
-
-
             });
         }
     }
@@ -56,20 +57,15 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
             }
         },
         action: function(color, id) {
-
             if(id===0) {
                 //reset if id is 0
                 this.showTiles();
             }else if(id<9){
                 TilesManager.navigate("show/" + color + "/" + id);
-
                 TilesApp.Controller.showView(color, id);
             }
         }
     };
-
-
-
 
     TilesManager.on("tiles:show", function(model){
         if(model) {

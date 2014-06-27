@@ -34,11 +34,13 @@ TilesManager.module("TilesApp.Start", function(Start, TilesManager, Backbone, Ma
 
     });
 
-    Start.Tiles = Marionette.CompositeView.extend({
+    Start.Tiles = Marionette.CollectionView.extend({
         tagName: "div",
-        className: "row",
-        template: "#tiles-frame",
-        itemView: Start.Tile,
-        itemViewContainer: "div.col-md-5"
+        className: "div.col-md-5",
+        itemView: Start.Tile
+    });
+
+    Start.Login = Marionette.ItemView.extend({
+        template: "#login"
     });
 });
