@@ -7,12 +7,16 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
        }
     });
 
-    TilesApp.Layout = Marionette.Layout.extend({
-        template: "#layout",
+    TilesApp.Login = Marionette.Layout.extend({
+        template: "#login",
         regions:{
             tilesRegion: "#tiles-region",
             actionRegion: "#action-region"
         }
+    });
+
+    TilesApp.Undefined = Marionette.ItemView.extend({
+        template: "#placeholder"
     });
 
     TilesApp.Controller = {
@@ -25,26 +29,33 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     collection: tiles
                 });
                 tilesView.on("itemview:tiles:action", function(childView, model){
-                    TilesManager.trigger("tiles:action", color, model);
+                    TilesManager.trigger("tiles:action", color, model.id);
                 });
-                var Layout = Marionette.Layout.extend({
-                    template: "#layout",
+                var model = tiles.get(id);
+                console.log(model);
+                var transition = model.get("transitions")[color];
+
+                var layout = new (Marionette.Layout.extend({
+                    template: "#"+transition["template"],
                     regions:{
                         tilesRegion: "#tiles-region",
                         actionRegion: "#action-region"
                     }
-                });
+                }));
 
-                                var layout = new Layout();
+                var actionView =  new (TilesManager.module(transition["module"])[transition["view"]]);
+
                 layout.on("show", function(){
-                    layout.tilesRegion.show(tilesView);
-                    layout.actionRegion.show(new TilesApp.Payment.CreditCard.New());
-                });
 
-                                TilesManager.mainRegion.show(layout);
+                    layout.tilesRegion.show(tilesView);
+                    layout.actionRegion.show(actionView);
+
+
+                });
+                TilesManager.mainRegion.show(layout);
             });
-        }
-    }
+
+    }}
 
     var API = {
         showTiles: function(color){
@@ -57,6 +68,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
             }
         },
         action: function(color, id) {
+
             if(id===0) {
                 //reset if id is 0
                 this.showTiles();
@@ -77,7 +89,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
     });
 
     TilesManager.on("tiles:action", function(color, model) {
-        API.action(color, model.id);
+        API.action(color, model);
     });
 
     TilesManager.addInitializer(function(){

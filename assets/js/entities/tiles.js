@@ -16,84 +16,138 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
             {
                 id:0,
                 color: "red",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"" },
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
             },
             {
                 id:1,
                 color: "violet",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"payment", module: "TilesApp.Payment.CreditCard", view:"New"},
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
             },
             {
                 id:2,
                 color: "pink",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"" },
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
             },
             {
                 id:3,
                 color: "orange",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"" },
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
             },
             {
                 id:4,
                 color: "yellow",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"" },
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
             },
             {
                 id:5,
                 color: "green",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"" },
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
             },
             {
                 id:6,
                 color: "cyan",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"" },
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
             },
             {
                 id:7,
                 color: "blue",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"" },
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
             },
             {
                 id:8,
                 color: "darkblue",
-                icons: {
-                    red: "", violet: "", pink: "",
-                    orange: "",yellow: "", green: "",
-                    cyan: "", blue: "", darkblue: ""
+                transitions: {
+                    red: { key:"", icon: "", template:"" },
+                    violet: { key:"", icon: "", template:"" },
+                    pink: { key:"", icon: "", template:"" },
+                    orange: { key:"", icon: "", template:"" },
+                    yellow: { key:"", icon: "", template:"" },
+                    green: { key:"", icon: "", template:"" },
+                    cyan: { key:"", icon: "", template:"" },
+                    blue: { key:"", icon: "", template:"" },
+                    darkblue: { key:"", icon: "", template:"" }
                 }
-            },
+            }
         ]);
         tiles.forEach(function(tile){
             tile.save();

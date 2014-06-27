@@ -52,6 +52,6 @@ TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marion
     });
 
     End.Login = Marionette.ItemView.extend({
-        template: "#login"
+        template: "#placeholder"
     });
 });

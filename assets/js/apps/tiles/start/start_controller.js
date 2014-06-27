@@ -14,7 +14,7 @@ TilesManager.module("TilesApp.Start", function(Start, TilesManager, Backbone, Ma
 //        },
         showTiles: function() {
             var fetchingTileData = TilesManager.request("tiles:entities");
-            var layout = new TilesManager.TilesApp.Layout();
+            var layout = new TilesManager.TilesApp.Login();
             $.when(fetchingTileData).done(function(tiles){
 
                 var tilesView = new Start.Tiles({

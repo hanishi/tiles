@@ -40,6 +40,6 @@ TilesManager.module("TilesApp.Start", function(Start, TilesManager, Backbone, Ma
     });
 
     Start.Login = Marionette.ItemView.extend({
-        template: "#login"
+        template: "#placeholder"
     });
 });

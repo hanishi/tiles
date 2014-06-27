@@ -17,7 +17,7 @@ TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marion
 
         showTiles: function(color) {
             var fetchingTileData = TilesManager.request("tiles:entities");
-            var layout = new TilesManager.TilesApp.Layout();
+            var layout = new TilesManager.TilesApp.Login();
             $.when(fetchingTileData).done(function(tiles){
 
                 TilesManager.currentColor = color;
@@ -25,7 +25,7 @@ TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marion
                     collection: tiles
                 });
                 tilesView.on("itemview:tiles:action", function(childView, model){
-                    TilesManager.trigger("tiles:action", color, model);
+                    TilesManager.trigger("tiles:action", color, model.id);
                 });
                 layout.on("show", function(){
                     layout.tilesRegion.show(tilesView);
