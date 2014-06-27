@@ -31,7 +31,6 @@ TilesManager.module("TilesApp.Start", function(Start, TilesManager, Backbone, Ma
             this.$el.unwrap();
             this.setElement(this.$el);
         }
-
     });
 
     Start.Tiles = Marionette.CollectionView.extend({

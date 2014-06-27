@@ -45,12 +45,13 @@ TilesManager.module("TilesApp.End", function(End, TilesManager, Backbone, Marion
 
     });
 
-    End.Tiles = Marionette.CompositeView.extend({
+    End.Tiles = Marionette.CollectionView.extend({
         tagName: "div",
-        className: "row",
-        template: "#tiles-frame",
-        itemView: End.Tile,
-        itemViewContainer: "div.col-md-5"
+        className: "div.col-md-5",
+        itemView: End.Tile
     });
 
+    End.Login = Marionette.ItemView.extend({
+        template: "#login"
+    });
 });
