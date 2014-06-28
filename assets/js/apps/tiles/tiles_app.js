@@ -32,7 +32,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     TilesManager.trigger("tiles:action", color, model.id);
                 });
                 var model = tiles.get(id);
-                console.log(model);
+
                 var transition = model.get("transitions")[color];
 
                 var layout = new (Marionette.Layout.extend({
@@ -43,14 +43,13 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     }
                 }));
 
-                var actionView =  new (TilesManager.module(transition["module"])[transition["view"]]);
+                //var actionView =  new (TilesManager.module(transition["module"])[transition["view"]]);
+                var actionView =  TilesManager.module(transition["module"])["view"];
 
                 layout.on("show", function(){
 
                     layout.tilesRegion.show(tilesView);
-                    layout.actionRegion.show(actionView);
-
-
+                    layout.actionRegion.show(actionView());
                 });
                 TilesManager.mainRegion.show(layout);
             });

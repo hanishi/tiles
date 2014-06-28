@@ -1,18 +1,21 @@
 TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesManager, Backbone, Marionette, $, _) {
     CreditCard.Controller = {
-        newCreditCard: function(color, id) {
-            var fetchingTileData = TilesManager.request("tiles:entities");
-            $.when(fetchingTileData).done(function(tiles){
+        view: function() {
+            var layout = new TilesManager.TilesApp.Payment.Layout();
+            var creditCard = new CreditCard.New();
+            var submit = new TilesManager.TilesApp.Payment.Submit();
 
-                TilesManager.currentColor = color;
-                var tilesView = new End.Tiles({
-                    collection: tiles
-                });
-                tilesView.on("itemview:tiles:action", function(childView, model){
-                    TilesManager.trigger("tiles:action", color, model);
-                });
-                TilesManager.mainRegion.show(tilesView);
+            layout.on("show", function(){
+
+                layout.paymentMethodRegion.show(creditCard);
+                layout.submitRegion.show(submit);
             });
+            submit.on("payment:submit", function(){
+
+                var data = Backbone.Syphon.serialize(layout);
+                console.log(data);
+            });
+            return layout;
         }
     }
 });
