@@ -7,7 +7,8 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
 
     Entities.TileCollection = Backbone.Collection.extend({
         url: "tiles",
-        model: Entities.Tile
+        model: Entities.Tile,
+        comparator: "id"
     });
     Entities.configureStorage(Entities.TileCollection);
 
@@ -47,7 +48,7 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 id:2,
                 color: "pink",
                 transitions: {
-                    red: { key:"", icon: "", template:"" },
+                    red: { key:"", icon: "", template:""},
                     violet: { key:"", icon: "", template:"" },
                     pink: { key:"", icon: "", template:"" },
                     orange: { key:"", icon: "", template:"" },

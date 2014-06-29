@@ -1,4 +1,4 @@
-TilesManager.module("Entities", function(Entities, ContactManager, Backbone,
+TilesManager.module("Entities", function(Entities, TilesManager, Backbone,
     Marionette, $, _) {
     var findStorageKey = function(entity){
 
