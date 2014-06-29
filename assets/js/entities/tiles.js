@@ -33,7 +33,7 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 id:1,
                 color: "violet",
                 transitions: {
-                    red: { key:"", icon: "", template:"payment", module: "TilesApp.Payment.CreditCard.Controller"},
+                    red: { key:"", icon: "", template:"payment", action: "TilesApp.Payment.CreditCard.Controller.view"},
                     violet: { key:"", icon: "", template:"" },
                     pink: { key:"", icon: "", template:"" },
                     orange: { key:"", icon: "", template:"" },

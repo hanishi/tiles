@@ -32,8 +32,8 @@ TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesMan
 
 
                         var slot =  TilesManager.TilesApp.TilesView.children.find(function(child) {
-                            console.log(!child.model.get("transitions")["red"]["module"])
-                            return child.model.id > 1 && !child.model.get("transitions")["red"]["module"];
+                            console.log(!child.model.get("transitions")["red"]["action"])
+                            return child.model.id > 1 && !child.model.get("transitions")["red"]["action"];
                         });
                         if(slot) {
                             slot.model.save({
@@ -41,7 +41,7 @@ TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesMan
                                     red:{
                                         key: newCreditCard.id,
                                         icon: "hige.icon",
-                                        module:"TilesApp.Payment.Token"}
+                                        action:"TilesApp.Payment.Token"}
                                 }
                             });
                             slot.render();

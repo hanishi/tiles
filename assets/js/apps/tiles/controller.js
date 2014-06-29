@@ -33,7 +33,10 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                             actionRegion: "#action-region"
                         }
                     }));
-                    actionView = TilesManager.module(transition["module"])["view"]();
+                    var action = transition["action"].split(/[\.]+/);
+                    var method = action.pop();
+
+                    actionView = TilesManager.module(action.join("."))[method]();
                 } else {
 
                     actionView = new TilesApp.Undefined();
