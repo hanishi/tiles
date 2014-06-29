@@ -35,7 +35,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     }));
                     var action = transition["action"].split(/[\.]+/);
                     var method = action.pop();
-
+                    console.log(action.join(".")+ "." + method);
                     actionView = TilesManager.module(action.join("."))[method]();
                 } else {
 
