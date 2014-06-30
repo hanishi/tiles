@@ -1,6 +1,6 @@
 TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesManager, Backbone, Marionette, $, _) {
     CreditCard.Controller = {
-        view: function() {
+        showNewCreditCard: function(tile) {
             var layout = new TilesManager.TilesApp.Payment.Layout();
             var creditCard = new CreditCard.New();
             var submit = new TilesManager.TilesApp.Payment.Submit();
@@ -40,8 +40,9 @@ TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesMan
                                 transitions:{
                                     red:{
                                         key: newCreditCard.id,
-                                        icon: "hige.icon",
-                                        action:"TilesApp.Payment.Token"}
+                                        icon: "カード",
+                                        template: "payment",
+                                        action:"TilesApp.Payment.CreditCard.Controller.showRegisteredCreditCard"}
                                 }
                             });
                             slot.render();
@@ -50,6 +51,27 @@ TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesMan
 
                 }));
             });
+            return layout;
+        },
+        showRegisteredCreditCard: function(tile) {
+
+            var fetchingCreditCard =  TilesManager.request("creditcard:entity", tile.get("transitions")["red"]["key"]);
+
+            var layout = new TilesManager.TilesApp.Payment.Layout();
+
+            var submit = new TilesManager.TilesApp.Payment.Submit();
+
+            submit.on("payment:submit", function(){
+
+            });
+            $.when(fetchingCreditCard.done(function(model) {
+                var creditCard = new CreditCard.Registered({model: model});
+                layout.on("show", function(){
+                    layout.paymentMethodRegion.show(creditCard);
+                    layout.submitRegion.show(submit);
+                });
+            }));
+
             return layout;
         }
     }

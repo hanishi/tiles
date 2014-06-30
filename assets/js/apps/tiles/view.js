@@ -38,7 +38,6 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         template: function(serialized_model) {
 
             var transition = serialized_model["transitions"][TilesManager.TilesApp.currentColor];
-            console.log(transition);
             return _.template(template, {color: TilesManager.TilesApp.currentColor, icon: transition? transition.icon : ""})
         },
         events: {

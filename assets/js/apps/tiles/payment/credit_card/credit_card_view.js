@@ -40,9 +40,22 @@ TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesMan
     });
 
     CreditCard.Registered = Marionette.ItemView.extend({
-        template: "#registered_credit_card",
-        onRender: function(){
-
+        tagName: "div",
+        className: "credit-card-input no-js",
+        template: function(serialized_model) {
+            return _.template(template);
+        },
+        onRender: function () {
+            console.log(this.model);
+            window.card = new Skeuocard(this.$el,{
+                initialValues: {
+                    number: this.model.get("cc_number"),
+                    expMonth: this.model.get("cc_exp_month"),
+                    expYear: this.model.get("cc_exp_year"),
+                    name: this.model.get("cc_name"),
+                    cvc: this.model.get("cc_cvc")
+                }
+            });
         }
     })
 });

@@ -63,16 +63,16 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
         getCreditCardEntity: function(id) {
             var tile = new Entities.CreditCard({id: id});
             var defer = $.Deferred();
-            setTimeout(function(){
-                tile.fetch({
-                    success: function(data) {
-                        defer.resolve(data);
-                    },
-                    error: function(data) {
-                        defer.resolve(undefined);
-                    }
-                });
-            }, 2000);
+
+            tile.fetch({
+                success: function(data) {
+                    defer.resolve(data);
+                },
+                error: function(data) {
+                    defer.resolve(undefined);
+                }
+            });
+
             return defer.promise();
         }
     };

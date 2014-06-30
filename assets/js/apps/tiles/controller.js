@@ -20,12 +20,12 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                         // 1 or last most recent position in this color
                         TilesManager.trigger("tiles:action", model.get("color"), 1);
                     }
-
                 });
                 var actionView;
                 if (id) {
-                    var model = tiles.get(id);
-                    var transition = model.get("transitions")[color];
+                    var tile = tiles.get(id);
+                    console.log(tile)
+                    var transition = tile.get("transitions")[color];
                     layout = new (Marionette.Layout.extend({
                         template: "#" + transition["template"],
                         regions: {
@@ -35,10 +35,8 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     }));
                     var action = transition["action"].split(/[\.]+/);
                     var method = action.pop();
-                    console.log(action.join(".")+ "." + method);
-                    actionView = TilesManager.module(action.join("."))[method]();
+                    actionView = TilesManager.module(action.join("."))[method](tile);
                 } else {
-
                     actionView = new TilesApp.Undefined();
                 }
 
@@ -48,6 +46,10 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                 });
             });
             TilesManager.mainRegion.show(layout);
+        },
+        showPlaceholder: function() {
+
+            return  new TilesApp.Undefined();
         }
     }
 });
