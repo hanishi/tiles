@@ -27,24 +27,26 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     console.log(tile)
                     var transition = tile.get("transitions")[color];
                     layout = new (Marionette.Layout.extend({
+                        className: "row",
                         template: "#" + transition["template"],
                         regions: {
-                            tilesRegion: "#tiles-region",
-                            actionRegion: "#action-region"
+                            tilesRegion: "#tiles-region"
+                            //actionRegion: "#action-region"
                         }
                     }));
                     var action = transition["action"].split(/[\.]+/);
                     var method = action.pop();
                     actionView = TilesManager.module(action.join("."))[method](tile);
                 } else {
-                    actionView = new TilesApp.Undefined();
+                    //actionView = new TilesApp.Undefined();
                 }
 
                 layout.on("show", function(){
                     layout.tilesRegion.show(TilesApp.TilesView);
-                    layout.actionRegion.show(actionView);
+                    //layout.actionRegion.show(actionView);
                 });
             });
+            console.log(layout);
             TilesManager.mainRegion.show(layout);
         },
         showPlaceholder: function() {

@@ -1,18 +1,13 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
-    var template = '<div class="square bg <%- color %>">' +
-        '<div class="content">' +
-        '<div class="table">'+
-            '<div class="table-cell"><%- icon %></div>'+
-        '</div>'+
-        '</div>'+
-    '</div>';
+    var template = '<li class="<%- color %> tile tile-small tile tile-2 slideTextRight" >' +
+        '<div><%- icon %></div>' +
+    '</li>';
     TilesApp.Menu = Marionette.ItemView.extend({
 
         template: function(serialized_model) {
             var color = serialized_model.color;
             return _.template(template, {color: color, icon: ""})
         },
-
         events: {
             "click": "tileClicked"
         },
@@ -62,18 +57,19 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
     TilesApp.Menus = Marionette.CollectionView.extend({
         tagName: "div",
-        className: "div.col-md-5",
+        className: "col1 clearfix",
         itemView: TilesApp.Menu
     });
 
     TilesApp.MenuItems = Marionette.CollectionView.extend({
         tagName: "div",
-        className: "div.col-md-5",
+        className: "col1 clearfix",
         itemView: TilesApp.MenuItem
     });
 
     TilesApp.Login = Marionette.Layout.extend({
         template: "#login",
+        className:"row",
         regions:{
             tilesRegion: "#tiles-region",
             actionRegion: "#action-region"
