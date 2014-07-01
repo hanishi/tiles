@@ -12,13 +12,14 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     new TilesApp.MenuItems({ collection: tiles}) :
                     new TilesApp.Menus({ collection: tiles});
 
+
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
                     //if(model.get("transitions")[TilesManager.TilesApp.currentColor]["module"])
                     if (TilesManager.TilesApp.currentColor) {
                         TilesManager.trigger("tiles:action", TilesManager.TilesApp.currentColor, model.id);
                     } else {
-                        // 1 or last most recent position in this color
-                        TilesManager.trigger("tiles:action", model.get("color"), 1);
+
+                        TilesManager.trigger("tiles:action", model.get("color"));
                     }
                 });
                 var actionView;
@@ -27,26 +28,33 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     console.log(tile)
                     var transition = tile.get("transitions")[color];
                     layout = new (Marionette.Layout.extend({
-                        className: "row",
                         template: "#" + transition["template"],
                         regions: {
-                            tilesRegion: "#tiles-region"
-                            //actionRegion: "#action-region"
+                            tilesRegion: "#tiles-region",
+                            actionRegion: "#action-region"
                         }
                     }));
                     var action = transition["action"].split(/[\.]+/);
                     var method = action.pop();
                     actionView = TilesManager.module(action.join("."))[method](tile);
                 } else {
-                    //actionView = new TilesApp.Undefined();
+                    actionView = new TilesApp.Undefined();
                 }
 
                 layout.on("show", function(){
                     layout.tilesRegion.show(TilesApp.TilesView);
-                    //layout.actionRegion.show(actionView);
+                    layout.actionRegion.show(actionView);
+                    if (!id) {
+
+                        console.log(TilesApp.TilesView.children);
+                        TilesApp.TilesView.children.forEach(function(view){
+
+                            view.$el.addClass("animated fadeIn")
+                        });
+
+                    }
                 });
             });
-            console.log(layout);
             TilesManager.mainRegion.show(layout);
         },
         showPlaceholder: function() {
