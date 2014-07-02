@@ -13,18 +13,17 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
             TilesApp.Controller.showView();
         },
         action: function(color, id) {
-            if (id!==undefined) {
+
                 if (id === 0) {
                     //reset if id is 0
                     this.showView();
-                } else if (id < 9) {
+                } else if (id != null && id < 9) {
                     TilesManager.navigate("show/" + color + "/" + id);
                     TilesApp.Controller.showView(color, id);
+                } else {
+                    TilesManager.navigate("show/" + color);
+                    TilesApp.Controller.showView(color);
                 }
-            } else {
-                TilesManager.navigate("show/" + color);
-                TilesApp.Controller.showView(color);
-            }
         }
     };
 

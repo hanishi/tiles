@@ -48,7 +48,6 @@ TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesMan
                             slot.render();
                         }
                     }
-
                 }));
             });
             return layout;
