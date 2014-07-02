@@ -65,14 +65,6 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         itemView: TilesApp.MenuItem
     });
 
-    TilesApp.Dialog = Marionette.Layout.extend({
-        template: "#action",
-        regions: {
-            headerRegion: "#header-region",
-            formRegion: "#form-region",
-            footerRegion: "#footer-region"
-        }
-    });
 
     TilesApp.Undefined = Marionette.ItemView.extend({
         template: "#placeholder"

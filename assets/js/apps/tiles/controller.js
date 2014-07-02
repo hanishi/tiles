@@ -24,30 +24,16 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
                 TilesApp.TilesView.on("show", function(){
 
-                    if (!id) {
-                        TilesApp.TilesView.children.forEach(function(view){
-                            view.$el.addClass('fadeInForward-1').removeClass('fadeOutback');
-                        });
-                    } else {
-                        TilesApp.TilesView.children.forEach(function(view){
-                            view.$el.addClass('fadeOutback').removeClass('fadeInForward-1');
-                        });
-                        var dialog = new  TilesApp.Dialog();
+                    if (id) {
+
+
                         var tile = tiles.get(id);
                         var transition = tile.get("transitions")[color];
                         var action = transition["action"].split(/[\.]+/);
                         var method = action.pop();
                         var actionView = TilesManager.module(action.join("."))[method](tile);
-                        dialog.on("show", function(){
-                            console.log("==========");
-                                dialog.formRegion.show(actionView);
-                            $("#dialog-region").addClass("slidePageInFromLeft").removeClass('slidePageBackLeft');
-                            TilesManager.dialogRegion.show(dialog);
-                        });
-                        console.log(TilesManager.dialogRegion);
 
-
-//                            TilesManager.dialogRegion.close();
+                        TilesManager.mainRegion.show(actionView);
 
                     }
 
