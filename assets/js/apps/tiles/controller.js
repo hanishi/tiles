@@ -13,27 +13,40 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     new TilesApp.Menus({ collection: tiles});
 
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
-                    TilesManager.dialogRegion.close();
-                    //if(model.get("transitions")[TilesManager.TilesApp.currentColor]["module"])
-                    if (TilesManager.TilesApp.currentColor) {
-                        TilesManager.trigger("tiles:action", TilesManager.TilesApp.currentColor, model.id);
-                    } else {
-                        TilesManager.trigger("tiles:action", model.get("color"));
-                    }
-                });
 
-                TilesApp.TilesView.on("show", function(){
-                    if (id) {
-                        var tile = tiles.get(id);
-                        var transition = tile.get("transitions")[color];
-                        var action = transition["action"].split(/[\.]+/);
-                        var method = action.pop();
-                        var actionView = TilesManager.module(action.join("."))[method](tile);
-                        TilesManager.dialogRegion.show(actionView);
-                    }
+                    TilesApp.TilesView.$el.addClass('animated bounceOut');
+                    TilesApp.TilesView.$el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        $(this).removeClass('animated bounceOut');
+
+                        if (TilesManager.TilesApp.currentColor) {
+                            TilesApp.TilesView.$el.hide();
+                            TilesManager.trigger("tiles:action", TilesManager.TilesApp.currentColor, model.id);
+                        } else {
+                            TilesManager.trigger("tiles:action", model.get("color"));
+                        }
+                    });
                 });
+                if (id) {
+                    var tile = tiles.get(id);
+                    var transition = tile.get("transitions")[color];
+                    var action = transition["action"].split(/[\.]+/);
+                    var method = action.pop();console.log(method);
+                    var actionView = TilesManager.module(action.join("."))[method](tile);
+                    TilesManager.mainRegion.close();
+                    var frame = new TilesManager.TilesApp.Action();
+                    frame.on("show", function(){
+                        frame.formRegion.show(actionView);
+                    });
+
+                    TilesManager.dialogRegion.show(frame);
+                    console.log("A");
+                } else {
+                    TilesManager.dialogRegion.close();
+                    TilesManager.mainRegion.show(TilesApp.TilesView);
+                }
             });
-            TilesManager.mainRegion.show(TilesApp.TilesView);
+
+
         },
         showPlaceholder: function() {
             return  new TilesApp.Undefined();

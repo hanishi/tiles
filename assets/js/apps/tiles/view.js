@@ -49,15 +49,24 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
     });
 
+    TilesApp.Action = Marionette.Layout.extend({
+        template: "#action",
+        regions: {
+            headerRegion: "#header-region",
+            formRegion: "#form-region",
+            footerRegion: "#footer-region"
+        }
+    });
+
     TilesApp.Menus = Marionette.CollectionView.extend({
         tagName: "div",
-        className: "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+        className: "squares",
         itemView: TilesApp.Menu
     });
 
     TilesApp.MenuItems = Marionette.CollectionView.extend({
         tagName: "div",
-        className: "col-xs-12 col-sm-6 col-md-6 col-lg-6",
+        className: "squares",
         itemView: TilesApp.MenuItem
     });
 

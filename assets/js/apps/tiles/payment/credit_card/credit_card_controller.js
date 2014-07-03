@@ -3,11 +3,15 @@ TilesManager.module("TilesApp.Payment.CreditCard", function(CreditCard, TilesMan
         showNewCreditCard: function(tile) {
             var layout = new TilesManager.TilesApp.Payment.Layout();
             var creditCard = new CreditCard.New();
+            var point = new TilesManager.TilesApp.Payment.Point();
+            var amount = new TilesManager.TilesApp.Payment.Amount();
             var submit = new TilesManager.TilesApp.Payment.Submit();
 
             layout.on("show", function(){
 
                 layout.paymentMethodRegion.show(creditCard);
+                layout.pointRegion.show(point);
+                layout.amountRegion.show(amount);
                 layout.submitRegion.show(submit);
             });
 

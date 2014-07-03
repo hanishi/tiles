@@ -16,7 +16,16 @@
     <style type='text/css'>
         .row {
             position: relative;
+
+
         }
+        .squares {
+            position: relative;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .square {
             float:left;
             position: relative;
@@ -24,16 +33,6 @@
             border-radius: 3px;
             padding-bottom : 30%; /* = width for a 1:1 aspect ratio */margin:1.66%;
             overflow:hidden;}
-        #dialog-region {
-            background-color: green;
-            position:absolute;
-            border-radius: 3px;
-            width: 100%;
-            padding-bottom : 100%; /* = width for a 1:1 aspect ratio */margin:1.66%;
-            left: 0px;
-            top: 0px;
-            z-index: -1;
-        }
         /* For responsive images as background */
         .bg {background: no-repeat center center;background-size:cover;
             /* you change this to "contain" if you don't want the images to be cropped */color:#fff;}
@@ -49,17 +48,75 @@
         /*body {font-size:20px;font-family: 'Lato',verdana, sans-serif;color: #fff;text-align:center;background:#ECECEC;}*/
         /*p{margin:0;padding:0;text-align:left;}*/
         .numbers{font-weight:900;font-size:100px;}
+
+        .arrow_box {
+            position: relative;
+            display: block;
+            
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            height: 100px;
+            background: #88b7d5;
+            border: 4px solid #c2e1f5;
+            border-radius: 10px;
+        }
+        .arrow_box:after, .arrow_box:before {
+            top: 100%;
+            left: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .arrow_box:after {
+            border-color: rgba(136, 183, 213, 0);
+            border-top-color: #88b7d5;
+            border-width: 15px;
+            margin-left: -15px;
+        }
+        .arrow_box:before {
+            border-color: rgba(194, 225, 245, 0);
+            border-top-color: #c2e1f5;
+            border-width: 21px;
+            margin-left: -21px;
+        }
+
+        .credit-card-input.skeuocard.js {
+            position: relative;
+
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        .btn.btn-default {
+            position: relative;
+            display: block;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div id="main-region" class="row"></div>
-    <div id="dialog-region" class="row"></div>
+
+
+            <div id="main-region" class="row"></div>
+            <div id="dialog-region" class="row"></div>
+
+
 </div>
 
 <script type="text/template" id="tiles">
-    <div id="tiles-region" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">tiles-region</div>
+    <div id="tiles-region">tiles-region</div>
 </script>
 
 <script type="text/template" id="placeholder">
@@ -68,18 +125,16 @@
 
 <script type="text/template" id="action">
     <div class="row">
-        <div id="header-region" class="col-xs-12 col-md-12 col-md-12 col-lg-12">
+        <div id="header-region" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             HEADER REGION
         </div>
     </div>
     <div class="row">
-        <form>
-            <div id="form-region" class="col-xs-12 col-md-12col-md-12 col-lg-12">
-            </div>
-        </form>
+        <div id="form-region"></div>
     </div>
+
     <div class="row">
-        <div id="footer-region" class="col-xs-12 col-md-12 col-md-12 col-lg-12">
+        <div id="footer-region" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             FOOTER REGION
         </div>
     </div>
@@ -89,17 +144,22 @@
     Payment Point
 </script>
 <script type="text/template" id="payment-amount">
-    Payment Amount
+    <div class="arrow_box">
+        <div class="">
+
+        </div>
+    </div>
+
 </script>
 <script type="text/template" id="payment-submit">
-    <button class="btn btn-default">支払う</button>
+    <div class="btn btn-default">支払う</div>
 </script>
 
 <script type="text/template" id="payment-form">
-        <div id="payment-method-region"></div>
-        <div id="point-region">S</div>
-        <div id="amount-region">S</div>
-        <div id="submit-region">SS</div>
+        <div id="payment-method-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+        <div id="point-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+        <div id="amount-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+        <div id="submit-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
 </script>
 <script type="text/javascript" src="assets/js/vendor/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="assets/js/vendor/json2.js"></script>

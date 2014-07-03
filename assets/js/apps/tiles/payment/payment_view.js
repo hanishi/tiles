@@ -11,6 +11,10 @@ TilesManager.module("TilesApp.Payment", function(Payment, TilesManager, Backbone
         }
     });
 
+    Payment.Point= Marionette.ItemView.extend({
+        template: "#payment-point"
+    });
+
     Payment.Amount= Marionette.ItemView.extend({
         template: "#payment-amount"
     });
