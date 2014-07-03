@@ -1,12 +1,8 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
     var template =
-        '<div class="content">' +
-        '<div class="table">'+
-        '<div class="table-cell">' +
-        '<%- icon %>'
-        '</div>'+
-        '</div>'+
-        '</div>';
+
+        ""
+  ;
     TilesApp.Menu = Marionette.ItemView.extend({
 
         template: function(serialized_model) {
@@ -25,7 +21,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         },
         onRender: function () {
 
-            this.$el.addClass("square bg " + this.model.get("color"));
+            this.$el.addClass("row square text-center bg " + this.model.get("color"));
         }
     });
 
@@ -48,7 +44,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         },
         onRender: function () {
 
-            this.$el.addClass("square bg " + TilesManager.TilesApp.currentColor);
+            this.$el.addClass("row square bg " + TilesManager.TilesApp.currentColor);
         }
 
     });

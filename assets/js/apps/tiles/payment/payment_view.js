@@ -1,7 +1,7 @@
 TilesManager.module("TilesApp.Payment", function(Payment, TilesManager, Backbone, Marionette, $, _) {
 
     Payment.Layout = Marionette.Layout.extend({
-
+        tagName: "form",
         template: "#payment-form",
         regions: {
             paymentMethodRegion: "#payment-method-region",

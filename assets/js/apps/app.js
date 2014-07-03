@@ -1,8 +1,9 @@
 var TilesManager = new Marionette.Application();
 
 TilesManager.addRegions({
-    mainRegion: Marionette.Region.Dialog.extend({
-        el: "#main-region"
+    mainRegion: "#main-region",
+    dialogRegion: Marionette.Region.Dialog.extend({
+        el: "#dialog-region"
     })
 });
 

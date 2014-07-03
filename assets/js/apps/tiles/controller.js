@@ -13,7 +13,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     new TilesApp.Menus({ collection: tiles});
 
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
-
+                    TilesManager.dialogRegion.close();
                     //if(model.get("transitions")[TilesManager.TilesApp.currentColor]["module"])
                     if (TilesManager.TilesApp.currentColor) {
                         TilesManager.trigger("tiles:action", TilesManager.TilesApp.currentColor, model.id);
@@ -23,20 +23,14 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                 });
 
                 TilesApp.TilesView.on("show", function(){
-
                     if (id) {
-
-
                         var tile = tiles.get(id);
                         var transition = tile.get("transitions")[color];
                         var action = transition["action"].split(/[\.]+/);
                         var method = action.pop();
                         var actionView = TilesManager.module(action.join("."))[method](tile);
-
-                        TilesManager.mainRegion.show(actionView);
-
+                        TilesManager.dialogRegion.show(actionView);
                     }
-
                 });
             });
             TilesManager.mainRegion.show(TilesApp.TilesView);
