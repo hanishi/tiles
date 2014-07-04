@@ -32,7 +32,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     var action = transition["action"].split(/[\.]+/);
                     var method = action.pop();console.log(method);
                     var actionView = TilesManager.module(action.join("."))[method](tile);
-                    TilesManager.mainRegion.close();
+                    //TilesManager.mainRegion.close();
                     var frame = new TilesManager.TilesApp.Action();
                     frame.on("show", function(){
                         frame.formRegion.show(actionView);
