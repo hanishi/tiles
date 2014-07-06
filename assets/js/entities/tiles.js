@@ -17,6 +17,7 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
             {
                 id:0,
                 color: "red",
+
                 transitions: {
                     red: { key:"", icon: "戻る", template:"login" },
                     violet: { key:"", icon: "戻る", template:"login"},
