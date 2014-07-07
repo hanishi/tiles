@@ -21,7 +21,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         },
         onRender: function () {
 
-            this.$el.addClass("row square text-center bg " + this.model.get("color"));
+            this.$el.addClass("row square-2 bg " + this.model.get("color"));
         }
     });
 

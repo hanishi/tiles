@@ -6,11 +6,28 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
             $.when(fetchingTileData).done(function(tiles){
 
+                var filteredTiles = TilesManager.Entities.FilteredCollection({
+                    collection: tiles,
+                    filterFunction: function(filterCriterion) {
+
+                        return function(tile) {
+
+                            if(_.find(filterCriterion,
+                                function(color){
+                                    return color==tile.get("color");
+                            }))
+                            return tile;
+                        }
+                    }
+                });
+
                 TilesManager.TilesApp.currentColor = color;
 
-                TilesApp.TilesView = TilesManager.TilesApp.currentColor ?
-                    new TilesApp.MenuItems({ collection: tiles}) :
-                    new TilesApp.Menus({ collection: tiles});
+                if (TilesManager.TilesApp.currentColor) {
+                    TilesApp.TilesView = new TilesApp.MenuItems({ collection: tiles});
+                } else {
+                    TilesApp.TilesView = new TilesApp.Menus({ collection: filteredTiles});
+                }
 
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
 
@@ -26,6 +43,10 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                         }
                     });
                 });
+                TilesApp.TilesView.on("show", function(){
+                    filteredTiles.filter(["red", "violet"])
+                })
+
                 if (id) {
                     var tile = tiles.get(id);
                     var transition = tile.get("transitions")[color];
@@ -45,8 +66,6 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     TilesManager.mainRegion.show(TilesApp.TilesView);
                 }
             });
-
-
         },
         showPlaceholder: function() {
             return  new TilesApp.Undefined();
