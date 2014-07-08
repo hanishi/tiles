@@ -60,7 +60,6 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     });
 
                     TilesManager.dialogRegion.show(frame);
-                    console.log("A");
                 } else {
                     TilesManager.dialogRegion.close();
                     TilesManager.mainRegion.show(TilesApp.TilesView);

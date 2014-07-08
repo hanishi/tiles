@@ -1,7 +1,8 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
     var template =
-
-        ""
+        '<div class="content">' +
+            '<img class="rs" src="<%- icon %>"/>' +
+        '</div>'
   ;
     TilesApp.Menu = Marionette.ItemView.extend({
 

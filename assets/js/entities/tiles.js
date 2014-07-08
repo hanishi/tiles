@@ -18,90 +18,48 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 id:0,
                 color: "red",
                 transitions: {
-                    red: { key:"", icon: "戻る", template:"login" },
-                    violet: { key:"", icon: "戻る", template:"login"},
-                    pink: { key:"", icon: "戻る", template:"login"},
-                    orange: { key:"", icon: "戻る", template:"login" },
-                    yellow: { key:"", icon: "戻る", template:"login" },
-                    green: { key:"", icon: "戻る", template:"login" },
-                    cyan: { key:"", icon: "戻る", template:"login" },
-                    blue: { key:"", icon: "戻る", template:"login" },
-                    darkblue: { key:"", icon: "戻る", template:"login" }
+                    red: { key:"", icon: "A", template:"TilesApp.Controller.showPlaceholder" },
+                    violet: { key:"", icon: "B", template:"TilesApp.Controller.showPlaceholder"}
                 }
             },
             {
                 id:1,
                 color: "violet",
                 transitions: {
-                    red: { key:"", icon: "新規", template:"payment", action: "TilesApp.Payment.CreditCard.Controller.showNewCreditCard"},
-                    violet: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    pink: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    orange: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    yellow: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    green: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    cyan: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    blue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    darkblue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" }
+                    red: { key:"", icon: "C", template:"payment", action: "TilesApp.Controller.showPlaceholder"},
+                    violet: { key:"", icon: "D", template:"login", action: "TilesApp.Controller.showPlaceholder" }
                 }
             },
             {
                 id:2,
                 color: "pink",
                 transitions: {
-                    red: { },
-                    violet: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    pink: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    orange: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    yellow: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    green: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    cyan: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    blue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    darkblue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" }
+                    red: { key:"", icon: "E", template:"payment", action: "TilesApp.Controller.showPlaceholder"},
+                    violet: { key:"", icon: "F", template:"login", action: "TilesApp.Controller.showPlaceholder" }
                 }
             },
             {
                 id:3,
                 color: "orange",
                 transitions: {
-                    red: { },
-                    violet: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    pink: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    orange: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    yellow: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    green: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    cyan: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    blue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    darkblue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" }
+                    red: { key:"", icon: "G", template:"payment", action: "login"},
+                    violet: { key:"", icon: "H", template:"login", action: "TilesApp.Controller.showPlaceholder" }
                 }
             },
             {
                 id:4,
                 color: "yellow",
                 transitions: {
-                    red: { },
-                    violet: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    pink: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    orange: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    yellow: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    green: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    cyan: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    blue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    darkblue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" }
+                    red: { key:"", icon: "I", template:"payment", action: "TilesApp.Payment.CreditCard.Controller.showNewCreditCard"},
+                    violet: { key:"", icon: "J", template:"login", action: "TilesApp.Controller.showPlaceholder" }
                 }
             },
             {
                 id:5,
                 color: "green",
                 transitions: {
-                    red: { },
-                    violet: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    pink: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    orange: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    yellow: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    green: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    cyan: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    blue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" },
-                    darkblue: { key:"", icon: "", template:"login", action: "TilesApp.Controller.showPlaceholder" }
+                    red: { key:"", icon: "K", template:"payment", action: "TilesApp.Payment.CreditCard.Controller.showNewCreditCard"},
+                    violet: { key:"", icon: "L", template:"login", action: "TilesApp.Controller.showPlaceholder" }
                 }
             }
 //            {

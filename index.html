@@ -51,6 +51,17 @@
             overflow:hidden;
         }
 
+        .content {
+            position: absolute;
+            height: 90%;
+            width: 90%;
+            padding: 5%;
+        }
+
+        .content .rs {
+            width: auto;
+        }
+
         /* For responsive images as background */
         .bg {background: no-repeat center center;background-size:cover;
             /* you change this to "contain" if you don't want the images to be cropped */color:#fff;}
@@ -206,7 +217,7 @@
 <!--<script src="assets/js/vendor/scripts.js"></script>-->
 <script>
 
-    //localStorage.clear();
+    localStorage.clear();
     TilesManager.start();
 
 </script>
