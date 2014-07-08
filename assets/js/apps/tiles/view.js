@@ -45,7 +45,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         },
         onRender: function () {
 
-            this.$el.addClass("row square bg " + TilesManager.TilesApp.currentColor);
+            this.$el.addClass("row square " + (this.model.get("enabled") ? "bg " + TilesManager.TilesApp.currentColor : ""));
         }
 
     });
