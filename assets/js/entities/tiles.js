@@ -18,26 +18,28 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 id:0,
                 color: "red",
                 transitions: {
-                    red: { key:"", icon: "A", template:"TilesApp.Controller.showPlaceholder" },
-                    violet: { key:"", icon: "B", template:"TilesApp.Controller.showPlaceholder"}
+                    red: { key:"", icon: "A", template:"TilesApp.Controller.showPlaceholder",  background: "credit_cards_color" },
+                    violet: { key:"", icon: "B", template:"TilesApp.Controller.showPlaceholder",  background: "cvs1"}
                 },
+                background: "credit_cards_font",
                 enabled: true
             },
             {
                 id:1,
                 color: "violet",
                 transitions: {
-                    red: { key:"", icon: "C", template:"payment"},
-                    violet: { key:"", icon: "D", template:"login"}
+                    red: { key:"", icon: "C", template:"payment", background: "credit_cards_color" },
+                    violet: { key:"", icon: "D", template:"login", background: "cvs2"}
                 },
+                background: "shop_font",
                 enabled: true
             },
             {
                 id:2,
                 color: "pink",
                 transitions: {
-                    red: { key:"", icon: "E", template:"payment"},
-                    violet: { key:"", icon: "F", template:"login"}
+                    red: { key:"", icon: "E", template:"payment",  background: "credit_cards_color" },
+                    violet: { key:"", icon: "F", template:"login",  background: "cvs3"}
                 },
                 enabled: true
             },
@@ -45,8 +47,8 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 id:3,
                 color: "orange",
                 transitions: {
-                    red: { key:"", icon: "G", template:"payment"},
-                    violet: { key:"", icon: "H", template:"login"}
+                    red: { key:"", icon: "G", template:"payment",  background: "credit_cards_color"},
+                    violet: { key:"", icon: "H", template:"login",  background: "cvs4"}
                 },
                 enabled: true
             },
@@ -54,8 +56,8 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 id:4,
                 color: "yellow",
                 transitions: {
-                    red: { key:"", icon: "I", template:"payment"},
-                    violet: { key:"", icon: "J", template:"login"}
+                    red: { key:"", icon: "I", template:"payment",  background: "credit_cards_color"},
+                    violet: { key:"", icon: "J", template:"login",  background: "cvs5"}
                 },
                 enabled: true
             },
@@ -63,8 +65,8 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 id:5,
                 color: "green",
                 transitions: {
-                    red: { key:"", icon: "K", template:"payment"},
-                    violet: { key:"", icon: "L", template:"login"}
+                    red: { key:"", icon: "K", template:"payment",  background: "credit_cards_color"},
+                    violet: { key:"", icon: "L", template:"login",  background: "cvs6"}
                 },
                 enabled: true
             },
@@ -73,7 +75,7 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 color: "cyan",
                 transitions: {
                     red: { },
-                    violet: { key:"", icon: "", template:"login"}
+                    violet: { }
                 },
                 enabled: false
             },
@@ -81,9 +83,10 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 id:7,
                 color: "blue",
                 transitions: {
-                    red: { key:"", icon: "", template:"login", navigate:"violet"},
-                    violet: { key:"", icon: "", template:"login", navigate:"red"}
+                    red: { key:"", icon: "", template:"login", navigate:"violet", background:"shop_font"},
+                    violet: { key:"", icon: "", template:"login", navigate:"red", background:"credit_cards_font"}
                 },
+                background: "",
                 enabled: true
             },
             {
@@ -91,8 +94,7 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 color: "darkblue",
                 transitions: {
                     red: { },
-                    violet: { key:"", icon: "", template:"login"},
-                    pink: { key:"", icon: "", template:"login"}
+                    violet: { }
                 },
                 enabled: false
             }

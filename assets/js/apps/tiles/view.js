@@ -1,9 +1,6 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
-    var template =
-        '<div class="content">' +
-            '<img class="rs" src="<%- icon %>"/>' +
-        '</div>'
-  ;
+    var template = '';
+
     TilesApp.Menu = Marionette.ItemView.extend({
 
         template: function(serialized_model) {
@@ -22,7 +19,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         },
         onRender: function () {
 
-            this.$el.addClass("row square-2 bg " + this.model.get("color"));
+            this.$el.addClass("row square-2 " + this.model.get("background"));
         }
     });
 
@@ -31,6 +28,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         template: function(serialized_model) {
 
             var transition = serialized_model["transitions"][TilesManager.TilesApp.currentColor];
+
             return _.template(template, { icon: transition? transition.icon : ""})
         },
         events: {
@@ -44,8 +42,9 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
         },
         onRender: function () {
-
-            this.$el.addClass("row square " + (this.model.get("enabled") ? "bg " + TilesManager.TilesApp.currentColor : ""));
+            var transition = this.model.get("transitions")[TilesManager.TilesApp.currentColor];
+            this.bg = transition["background"];
+            this.$el.addClass("row square " + (this.model.get("enabled") ? this.bg : ""));
         }
 
     });
