@@ -29,7 +29,7 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                 ],
                 icon: "bg red",
                 enabled: true,
-                content: '<i class="fa fa-camera-retro fa-lg"></i>'
+                content: '<i class="fa fa-camera-retro fa-2x"></i>'
             },
             {
                 id: 1,
