@@ -1,29 +1,38 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
     TilesApp.Router = Marionette.AppRouter.extend({
        appRoutes: {
-           "show": "showView",
-           "show/:color": "action",
-           "show/:color/:id": "action"
+           "t": "showView",
+           "t/:category": "showView",
+           "t/:category/:id": "showView"
        }
     });
 
     var API = {
-        showView: function(){
-            TilesManager.navigate("show");
-            TilesApp.Controller.showView();
-        },
-        action: function(color, id) {
 
-                if (id === 0) {
-                    //reset if id is 0
-                    this.showView();
-                } else if (id != null && id < 9) {
-                    TilesManager.navigate("show/" + color + "/" + id);
-                    TilesApp.Controller.showView(color, id);
+        showView: function(category, id) {
+
+            if (!_.isUndefined(category) && !_.isNull(category)) {
+
+                if (!_.isUndefined(id) && !_.isNull(id)) {
+                    if (id < 9) {
+                        console.log(category + ":" + id);
+                        TilesManager.navigate("t/" + category + "/" + id);
+                        TilesApp.Controller.showView(category, id);
+                    } else {
+                        TilesManager.navigate("t/" + category);
+                        TilesApp.Controller.showView(category);
+                    }
+
                 } else {
-                    TilesManager.navigate("show/" + color);
-                    TilesApp.Controller.showView(color);
+
+                    TilesManager.navigate("t/" + category);
+                    TilesApp.Controller.showView(category);
                 }
+
+            } else {
+                TilesManager.navigate("t");
+                TilesApp.Controller.showView();
+            }
         }
     };
 
@@ -31,8 +40,9 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         API.showView();
     });
 
-    TilesManager.on("tiles:action", function(color, id) {
-        API.action(color, id);
+    TilesManager.on("tiles:action", function(category, id) {
+        console.log(category + ":" + id)
+        API.showView(category, id);
     });
 
     TilesManager.addInitializer(function(){

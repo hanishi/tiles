@@ -1,11 +1,14 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
-    var template = '';
+    var template = '<div class="content">' +
+                        '<div class="table">' +
+                            '<div class="table-cell"><%= content %></div>'
+                        '</div>'
+                   '</div>';
 
     TilesApp.Menu = Marionette.ItemView.extend({
 
         template: function(serialized_model) {
-            var color = serialized_model.color;
-            return _.template(template, {color: color, icon: ""})
+            return _.template(template, { content: serialized_model['content'], icon: ""})
         },
         events: {
             "click": "tileClicked"
@@ -13,13 +16,12 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         tileClicked: function(e) {
             e.preventDefault();
             e.stopPropagation();
-
             this.trigger("tiles:action", this.model);
 
         },
         onRender: function () {
 
-            this.$el.addClass("row square-2 " + this.model.get("background"));
+            this.$el.addClass("row square bg " + this.model.get("icon"));
         }
     });
 
@@ -27,7 +29,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
         template: function(serialized_model) {
 
-            var transition = serialized_model["transitions"][TilesManager.TilesApp.currentColor];
+            var transition = serialized_model["transitions"][TilesManager.TilesApp.currentCategory];
 
             return _.template(template, { icon: transition? transition.icon : ""})
         },
@@ -38,22 +40,24 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
         tileClicked: function(e) {
             e.preventDefault();
             e.stopPropagation();
-            this.trigger("tiles:action", this.model);
+
+            var transition = this.model.get("transitions")[TilesManager.TilesApp.currentCategory];
+            if (!this.model.get("enabled") || !_.has(transition, "action")) return;
+                this.trigger("tiles:action", this.model);
 
         },
         onRender: function () {
-            var transition = this.model.get("transitions")[TilesManager.TilesApp.currentColor];
-            this.bg = transition["background"];
-            this.$el.addClass("row square " + (this.model.get("enabled") ? this.bg : ""));
+            var transition = this.model.get("transitions")[TilesManager.TilesApp.currentCategory];
+            this.$el.addClass("row square bg " + (this.model.get("enabled") ? transition["icon"] : ""));
         }
 
     });
 
-    TilesApp.Action = Marionette.Layout.extend({
-        template: "#action",
+    TilesApp.Frame = Marionette.Layout.extend({
+        template: "#frame",
         regions: {
             headerRegion: "#header-region",
-            formRegion: "#form-region",
+            contentRegion: "#content-region",
             footerRegion: "#footer-region"
         }
     });

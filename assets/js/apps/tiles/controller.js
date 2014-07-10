@@ -1,87 +1,75 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
     TilesApp.Controller = {
 
-        showView: function(color, id) {
+        showView: function(category, id) {
+
             var fetchingTileData = TilesManager.request("tiles:entities");
 
             $.when(fetchingTileData).done(function(tiles){
 
-                TilesManager.TilesApp.currentColor = color;
+                TilesManager.TilesApp.currentCategory = category;
 
-                if (TilesManager.TilesApp.currentColor) {
+                var region;
+                var frame = new TilesManager.TilesApp.Frame();
+                if(!_.isUndefined(TilesManager.TilesApp.currentCategory)) {
 
-                    TilesApp.TilesView = new TilesApp.MenuItems({ collection: tiles});
+                    if(!_.isUndefined(id)) {
+
+                        var tile = tiles.get(id);
+                        var transition = tile.get("transitions")[TilesManager.TilesApp.currentCategory];
+                        //if(!_.has(transition, "action")) throw new Error("no action specified.")
+                        var action = transition["action"].split(/[\.]+/);
+                        var method = action.pop();
+
+                        TilesApp.TilesView = TilesManager.module(action.join("."))[method](tile);
+                        frame.on("show", function () {
+                            frame.contentRegion.show(TilesApp.TilesView);
+                            frame.footerRegion.show();
+                        });
+                        TilesManager.mainRegion.close();
+                        region = TilesManager.dialogRegion;
+                    } else {
+                        TilesApp.TilesView = new TilesApp.MenuItems({ collection: tiles});
+                        frame.on("show", function () {
+                            frame.contentRegion.show(TilesApp.TilesView);
+                            frame.footerRegion.show();
+                        });
+                        TilesManager.dialogRegion.close();
+                        region = TilesManager.mainRegion;
+                    }
 
                 } else {
+                    TilesApp.TilesView = new TilesApp.Menus({ collection: tiles});
 
-                    var filteredTiles = TilesManager.Entities.FilteredCollection({
-                        collection: tiles,
-                        filterFunction: function(filterCriterion) {
-
-                            return function(tile) {
-
-                                if(_.find(filterCriterion,
-                                    function(color){
-                                        return color==tile.get("color");
-                                    }))
-                                    return tile;
-                            }
-                        }
+                    frame.on("show", function () {
+                        frame.contentRegion.show(TilesApp.TilesView);
                     });
-
-                    TilesApp.TilesView = new TilesApp.Menus({ collection: filteredTiles});
-
-                    TilesApp.TilesView.on("show", function(){
-                        filteredTiles.filter(["red", "violet",""]);
-                    });
+                    TilesManager.dialogRegion.close();
+                    region = TilesManager.mainRegion;
                 }
 
+
+
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
-                    if(color) {
-                        var transition = model.get("transitions")[color];
-                        if (!_.has(transition, "action") && !_.has(transition, "navigate")) return;
-                    }
-                    TilesApp.TilesView.$el.addClass('animated bounceOut');
-                    TilesApp.TilesView.$el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+
+                    frame.$el.addClass('animated bounceOut');
+                    frame.$el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                         $(this).removeClass('animated bounceOut');
 
-                        if (TilesManager.TilesApp.currentColor) {
-                            TilesApp.TilesView.$el.hide();
-                            TilesManager.trigger("tiles:action", TilesManager.TilesApp.currentColor, model.id);
+                        if (!_.isUndefined(TilesManager.TilesApp.currentCategory)) {
+
+                            TilesManager.trigger("tiles:action", TilesManager.TilesApp.currentCategory, model.id);
 
                         } else {
-                            TilesManager.trigger("tiles:action", model.get("color"));
+
+                            TilesManager.trigger("tiles:action", model.id);
                         }
                     });
                 });
-
-                if (id) {
-
-                    var tile = tiles.get(id);
-                    var transition = tile.get("transitions")[color];
-                    if(_.has(transition, "action")) {
-                        var action = transition["action"].split(/[\.]+/);
-                        var method = action.pop();
-                        var actionView = TilesManager.module(action.join("."))[method](tile);
-                        TilesManager.mainRegion.close();
-                        var frame = new TilesManager.TilesApp.Action();
-                        frame.on("show", function () {
-                            frame.formRegion.show(actionView);
-                        });
-
-                        TilesManager.dialogRegion.show(frame);
-
-                    } else if (_.has(transition, "navigate")) {
-                        var c = transition["navigate"];
-                        TilesManager.navigate("show/" + c);
-                        TilesApp.Controller.showView(c);
-                    }
-                } else {
-                    TilesManager.dialogRegion.close();
-                    TilesManager.mainRegion.show(TilesApp.TilesView);
-                }
+                region.show(frame);
             });
         },
+
         showPlaceholder: function() {
             return  new TilesApp.Undefined();
         }

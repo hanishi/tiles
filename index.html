@@ -14,14 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <style type='text/css'>
+        .container {
+            text-align: center;
+        }
         .row {
             position: relative;
         }
 
         .squares {
             position: relative;
-            width: 384px;
-            height: 384px;
+            width: 300px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -36,19 +38,11 @@
             overflow:hidden;
         }
 
-        .square-2{ /* square4*/
-            float:left;
-            display: block;
-            position: relative;
-            width: 30%;
-            border-radius: 3px;
-            padding-bottom : 30%;
-            overflow:hidden;
-            margin:1.66%;
-            top: 16.66%;
-            left: 16.66%;
-
-            overflow:hidden;
+        .bg{
+            background-position:center center;
+            background-repeat:no-repeat;
+            background-size: contain;
+            color:#fff;
         }
 
         .content {
@@ -64,8 +58,9 @@
             height:100%;
         }
         .table-cell{
-            display:table-cell;
+            /*display:inline-block;*/
             vertical-align:middle;
+            text-align: center;
         }
 
         .credit_cards_color{
@@ -101,7 +96,6 @@
             background-size: contain;
         }
 
-
         /* For responsive images as background */
         /*.bg {background: no-repeat center center;background-size:cover;*/
             /* you change this to "contain" if you don't want the images to be cropped *//*color:#fff;}*/
@@ -118,50 +112,6 @@
         /*p{margin:0;padding:0;text-align:left;}*/
         .numbers{font-weight:900;font-size:100px;}
 
-        .arrow_box {
-            position: relative;
-            display: block;
-            
-            margin-left: auto;
-            margin-right: auto;
-            width: 300px;
-            height: 100px;
-            background: #88b7d5;
-            border: 4px solid #c2e1f5;
-            border-radius: 10px;
-        }
-        .arrow_box:after, .arrow_box:before {
-            top: 100%;
-            left: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .arrow_box:after {
-            border-color: rgba(136, 183, 213, 0);
-            border-top-color: #88b7d5;
-            border-width: 15px;
-            margin-left: -15px;
-        }
-        .arrow_box:before {
-            border-color: rgba(194, 225, 245, 0);
-            border-top-color: #c2e1f5;
-            border-width: 21px;
-            margin-left: -21px;
-        }
-
-        .credit-card-input.skeuocard.js {
-            position: relative;
-
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-
-        }
         .btn.btn-default {
             position: relative;
             display: block;
@@ -188,44 +138,23 @@
 
 </script>
 
-<script type="text/template" id="action">
+<script type="text/template" id="frame">
     <div class="row">
-        <div id="header-region" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            HEADER REGION
+        <div id="header-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
         </div>
     </div>
     <div class="row">
-        <div id="form-region"></div>
+        <div id="content-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
     </div>
 
     <div class="row">
-        <div id="footer-region" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            FOOTER REGION
-        </div>
-    </div>
-</script>
-
-<script type="text/template" id="payment-point">
-    Payment Point
-</script>
-<script type="text/template" id="payment-amount">
-    <div class="arrow_box">
-        <div class="">
+        <div id="footer-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
         </div>
     </div>
-
-</script>
-<script type="text/template" id="payment-submit">
-    <div class="btn btn-default">支払う</div>
 </script>
 
-<script type="text/template" id="payment-form">
-        <div id="payment-method-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
-        <div id="point-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
-        <div id="amount-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
-        <div id="submit-region" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
-</script>
 <script type="text/javascript" src="assets/js/vendor/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="assets/js/vendor/json2.js"></script>
 <script type="text/javascript" src="assets/js/vendor/underscore.js"></script>
