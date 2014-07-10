@@ -27,10 +27,9 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                     { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
                     { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg red",
+                icon: "",
                 enabled: true,
-                content: '<i class="fa fa-camera-retro fa-2x"></i>'
-            },
+                content: '<i class="fa fa-camera-retro fa-2x"></i><br>連絡' },
             {
                 id: 1,
                 transitions: [
