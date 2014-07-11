@@ -1,15 +1,30 @@
 TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Marionette, $, _) {
     var template = '<div class="content">' +
                         '<div class="table">' +
-                            '<div class="table-cell"><%= content %></div>'
+                            '<div class="table-cell">' +
+                                '<i class="<%- icon %>"></i><br><%- text %>' +
+                            '</div>'
                         '</div>'
                    '</div>';
 
     TilesApp.Menu = Marionette.ItemView.extend({
 
         template: function(serialized_model) {
-            return _.template(template, { content: serialized_model['content'], icon: ""})
+            var view_model;
+            if(_.has(serialized_model, "transitions")) {
+                view_model = 
+            }
+            return _.template(template, { icon: serialized_model['icon'], text:  serialized_model['text']})
         },
+
+
+        aaaa: function(serialized_model) {
+
+            var transition = serialized_model["transitions"][TilesManager.TilesApp.currentCategory];
+
+            return _.template(template, { icon: transition? transition.icon : ""})
+        },
+
         events: {
             "click": "tileClicked"
         },
