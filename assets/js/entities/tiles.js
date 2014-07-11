@@ -28,7 +28,7 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                     { key:"", icon: "fa fa-fax fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"}
                 ],
                 action:"TilesApp.Controller.showPlaceholder",
-                icon: "fa fa-camera-retro fa-3x fa-border",
+                icon: '<span class="fa-stack fa-2x"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-flag fa-stack-1x fa-inverse"></i></span>',
                 enabled: true,
                 text: '連絡'
             },
@@ -90,14 +90,14 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
                     { key:"", icon: "fa fa-book fa-2x", action:"TilesApp.Controller.showPlaceholder"},
                     { key:"", icon: "fa fa-phone fa-2x", action:"TilesApp.Controller.showPlaceholder"},
                     { key:"", icon: "fa fa-heart fa-2x", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "fa fa-cogs fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", action:"TilesApp.Controller.showPlaceholder"},
                     { key:"", icon: "fa fa-comment fa-2x", action:"TilesApp.Controller.showPlaceholder"},
                     { key:"", icon: "fa fa-child fa-2x", action:"TilesApp.Controller.showPlaceholder"},
                     { key:"", icon: "fa fa-edit fa-2x", action:"TilesApp.Controller.showPlaceholder"},
                     { key:"", icon: "fa fa-fax fa-2x", action:"TilesApp.Controller.showPlaceholder"}
                 ],
                 icon: "fa fa-camera-retro fa-2x",
-                action:"TilesApp.Controller.showPlaceholder",
+                action: true,
                 enabled: true,
                 text: '連絡'
             },

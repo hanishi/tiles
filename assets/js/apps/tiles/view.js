@@ -2,7 +2,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
     var template = '<div class="content">' +
                         '<div class="table">' +
                             '<div class="table-cell">' +
-                                '<i class="<%- icon %>"></i><br><%- text %>' +
+                                '<%= icon %><br><%- text %>' +
                             '</div>'
                         '</div>'
                    '</div>';

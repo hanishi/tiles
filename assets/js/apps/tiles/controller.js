@@ -26,22 +26,7 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     TilesManager.mainRegion.close();
                     region = TilesManager.dialogRegion;
                 } else {
-                    if(!_.isUndefined(id)) {
 
-                        tile = tiles.get(id);
-                        action = tile["action"];
-
-                        method = action.pop();
-
-                        TilesApp.TilesView = TilesManager.module(action.join("."))[method](tile);
-                        frame.on("show", function () {
-                            frame.contentRegion.show(TilesApp.TilesView);
-                            //frame.footerRegion.show();
-                        });
-                        TilesManager.mainRegion.close();
-                        region = TilesManager.dialogRegion;
-
-                    } else {
                         TilesApp.TilesView = new TilesApp.Tiles({ collection: tiles});
 
                         frame.on("show", function () {
@@ -49,8 +34,6 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                         });
                         TilesManager.dialogRegion.close();
                         region = TilesManager.mainRegion;
-                    }
-
                 }
 
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
