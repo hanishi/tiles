@@ -9,46 +9,49 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
 
                 TilesManager.TilesApp.currentCategory = category;
 
-                var region;
+                var region, tile, action, method;
                 var frame = new TilesManager.TilesApp.Frame();
-                if(!_.isUndefined(TilesManager.TilesApp.currentCategory)) {
+                if(!_.isUndefined(TilesManager.TilesApp.currentCategory) && !_.isUndefined(id)) {
+                    tile = tiles.get(id);
+                    var transition = tile.get("transitions")[TilesManager.TilesApp.currentCategory];
+                    //if(!_.has(transition, "action")) throw new Error("no action specified.")
+                    action = transition["action"].split(/[\.]+/);
+                    method = action.pop();
 
+                    TilesApp.TilesView = TilesManager.module(action.join("."))[method](tile);
+                    frame.on("show", function () {
+                        frame.contentRegion.show(TilesApp.TilesView);
+                        //frame.footerRegion.show();
+                    });
+                    TilesManager.mainRegion.close();
+                    region = TilesManager.dialogRegion;
+                } else {
                     if(!_.isUndefined(id)) {
 
-                        var tile = tiles.get(id);
-                        var transition = tile.get("transitions")[TilesManager.TilesApp.currentCategory];
-                        //if(!_.has(transition, "action")) throw new Error("no action specified.")
-                        var action = transition["action"].split(/[\.]+/);
-                        var method = action.pop();
+                        tile = tiles.get(id);
+                        action = tile["action"];
+
+                        method = action.pop();
 
                         TilesApp.TilesView = TilesManager.module(action.join("."))[method](tile);
                         frame.on("show", function () {
                             frame.contentRegion.show(TilesApp.TilesView);
-                            frame.footerRegion.show();
+                            //frame.footerRegion.show();
                         });
                         TilesManager.mainRegion.close();
                         region = TilesManager.dialogRegion;
+
                     } else {
-                        TilesApp.TilesView = new TilesApp.MenuItems({ collection: tiles});
+                        TilesApp.TilesView = new TilesApp.Tiles({ collection: tiles});
+
                         frame.on("show", function () {
                             frame.contentRegion.show(TilesApp.TilesView);
-                            frame.footerRegion.show();
                         });
                         TilesManager.dialogRegion.close();
                         region = TilesManager.mainRegion;
                     }
 
-                } else {
-                    TilesApp.TilesView = new TilesApp.Menus({ collection: tiles});
-
-                    frame.on("show", function () {
-                        frame.contentRegion.show(TilesApp.TilesView);
-                    });
-                    TilesManager.dialogRegion.close();
-                    region = TilesManager.mainRegion;
                 }
-
-
 
                 TilesApp.TilesView.on("itemview:tiles:action", function(childView, model){
 
@@ -56,7 +59,11 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                     frame.$el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                         $(this).removeClass('animated bounceOut');
 
-                        if (!_.isUndefined(TilesManager.TilesApp.currentCategory)) {
+                        if(!_.isUndefined(model.get("action"))){
+
+                            TilesManager.trigger("tiles:action", undefined, model.id);
+
+                        } else if (!_.isUndefined(TilesManager.TilesApp.currentCategory)) {
 
                             TilesManager.trigger("tiles:action", TilesManager.TilesApp.currentCategory, model.id);
 

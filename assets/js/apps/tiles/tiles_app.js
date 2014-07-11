@@ -30,8 +30,12 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                 }
 
             } else {
-                TilesManager.navigate("t");
-                TilesApp.Controller.showView();
+                if(!_.isUndefined(id)) {
+                    this.showView(id, id);
+                } else {
+                    TilesManager.navigate("t");
+                    TilesApp.Controller.showView();
+                }
             }
         }
     };

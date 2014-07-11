@@ -17,154 +17,157 @@ TilesManager.module("Entities", function(Entities, TilesManager, Backbone, Mario
             {
                 id: 0,
                 transitions: [
-                    { key:"", icon: "credit_cards_color", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "fa fa-camera-retro fa-2x",
+                action:"TilesApp.Controller.showPlaceholder",
+                icon: "fa fa-camera-retro fa-3x fa-border",
                 enabled: true,
-                content: '<i class="fa fa-camera-retro fa-2x"></i><br>連絡' },
+                text: '連絡'
+            },
             {
                 id: 1,
                 transitions: [
-                    { key:"", icon: "bg red", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x fa-border", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg violet",
+                icon: "fa fa-camera-retro fa-3x fa-border",
                 enabled: true,
-                content: '<i class="icon-ok"></i>'
+                text: '連絡'
             },
             {
                 id: 2,
                 transitions: [
-                    { key:"", icon: "bg red", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg pink",
+                icon: "fa fa-camera-retro fa-2x",
                 enabled: true,
-                content: '<i class="icon-ok"></i>'
+                text: '連絡'
             },
             {
                 id: 3,
                 transitions: [
-                    { key:"", icon: "bg red", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg orange",
+                icon: "fa fa-camera-retro fa-2x",
                 enabled: true,
-                content: '<i class="icon-ok"></i>'
+                text: '連絡'
             },
             {
                 id: 4,
                 transitions: [
-                    { key:"", icon: "bg red", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg yellow",
+                icon: "fa fa-camera-retro fa-2x",
+                action:"TilesApp.Controller.showPlaceholder",
                 enabled: true,
-                content: '<i class="icon-ok"></i>'
+                text: '連絡'
             },
             {
                 id: 5,
                 transitions: [
-                    { key:"", icon: "bg red", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg green",
+                icon: "fa fa-camera-retro fa-2x",
                 enabled: true,
-                content: '<i class="icon-ok"></i>'
+                text: '連絡'
             },
             {
                 id: 6,
                 transitions: [
-                    { key:"", icon: "bg red", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg cyan",
+                icon: "fa fa-camera-retro fa-2x",
                 enabled: true,
-                content: '<i class="icon-ok"></i>'
+                text: '連絡'
             },
             {
                 id: 7,
                 transitions: [
-                    { key:"", icon: "bg red", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg blue",
+                icon: "fa fa-camera-retro fa-2x",
                 enabled: true,
-                content: '<i class="icon-ok"></i>'
+                text: '連絡'
             },
             {
                 id: 8,
                 transitions: [
-                    { key:"", icon: "bg red", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg violet", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg pink", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg orange", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg yellow", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg green", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg cyan", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg blue", action:"TilesApp.Controller.showPlaceholder"},
-                    { key:"", icon: "bg darkblue", action:"TilesApp.Controller.showPlaceholder"}
+                    { key:"", icon: "fa fa-calendar fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-book fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-phone fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-heart fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-cogs fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-comment fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-child fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-edit fa-2x", action:"TilesApp.Controller.showPlaceholder"},
+                    { key:"", icon: "fa fa-fax fa-2x", action:"TilesApp.Controller.showPlaceholder"}
                 ],
-                icon: "bg darkblue",
+                icon: "fa fa-camera-retro fa-2x",
                 enabled: true,
-                content: '<i class="icon-ok"></i>'
+                text: '連絡'
             }
         ]);
         tiles.forEach(function(tile){
