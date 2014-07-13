@@ -19,8 +19,8 @@ TilesManager.module("TilesApp", function(TilesApp, TilesManager, Backbone, Mario
                         TilesManager.navigate("t/" + category + "/" + id);
                         TilesApp.Controller.showView(category, id);
                     } else {
-                        TilesManager.navigate("t/" + category);
-                        TilesApp.Controller.showView(category);
+
+                        this.showView();
                     }
 
                 } else {
